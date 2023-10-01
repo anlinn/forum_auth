@@ -1,0 +1,9 @@
+:root{
+    --font-family-primary: "Inter";
+    --font-size-primary: 14px;
+}
+
+body{
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-primary);
+}
