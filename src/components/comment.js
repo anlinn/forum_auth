@@ -1,10 +1,18 @@
 import styles from "./comment.module.css";
 import {classes} from "@/utils/class-functions";
 import AnswerToComment from "@/components/answer-to-comment";
-import {useId} from "react";
+import {useId, useState} from "react";
 import SmallEditor from "@/components/small-editor";
+import {unified} from "unified";
+import remarkParse from "remark-parse";
+import remarkMath from "remark-math";
+import remarkRehype from "remark-rehype";
+import rehypeHighlight from "rehype-highlight";
+import rehypeClassNames from "rehype-class-names";
+import rehypeKatex from "rehype-katex";
+import rehypeStringify from "rehype-stringify";
 
-export default function Comment({ creator, timePosted, answers, children }) {
+export default function Comment({ creator, timePosted, answers, children: text }) {
     let renderedAnswers = [];
 
     for (const answer of answers) {
@@ -23,6 +31,25 @@ export default function Comment({ creator, timePosted, answers, children }) {
         createAnswerContainer.classList.add(styles.hidden);
     }
 
+    const renderedContentContainerId = "rendered-content-container-"+useId();
+
+    unified()
+        .use(remarkParse)
+        .use(remarkMath)
+        .use(remarkRehype)
+        .use(rehypeHighlight)
+        .use(rehypeClassNames, {
+            p: styles.previewP,
+            code: "hljs"
+        })
+        .use(rehypeKatex)
+        .use(rehypeStringify)
+        .process(text)
+        .then(data => {
+            const renderedContentContainer = document.getElementById(renderedContentContainerId);
+            renderedContentContainer.innerHTML = data.value;
+        });
+
     return <div>
         <div className={styles.commentContainer}>
             <div className={styles.commentHeaderContainer}>
@@ -32,8 +59,8 @@ export default function Comment({ creator, timePosted, answers, children }) {
                     <span> um {timePosted}</span>
                 </div>
             </div>
-            <div className={styles.commentTextContainer}>
-                {children}
+            <div className={styles.commentTextContainer} id={renderedContentContainerId}>
+                Dieser Kommentar lädt noch...
             </div>
             <div className={styles.commentFooterContainer}>
                 <span className={styles.clickable}>

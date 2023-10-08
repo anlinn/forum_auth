@@ -33,10 +33,14 @@ export default function Comments() {
 
     return <div className={styles.container}>
         <Comment creator={"derdu"} timePosted={"19:20"} answers={answers}>
-            Felis at faucibus condimentum lorem id neque viverra. Lorem tellus dictumst proin eu ante eget. Curabitur pharetra pretium vel morbi ut ultrices dictum pellentesque. Enim ultrices id interdum tellus ac. At eget potenti quis nascetur amet tristique ornare euismod.
+            {
+                "Felis at faucibus condimentum lorem id neque viverra. Lorem tellus dictumst proin eu ante eget. \n$$\n\\int_a^b f(x) \\: ds = F(b) - F(a)\n$$\n Curabitur pharetra pretium vel morbi ut ultrices dictum pellentesque. Enim ultrices id interdum tellus ac. At eget potenti quis nascetur amet tristique ornare euismod."
+            }
         </Comment>
         <Comment creator={"derdu"} timePosted={"19:20"} answers={answers}>
-            Felis at faucibus condimentum lorem id neque viverra. Lorem tellus dictumst proin eu ante eget. Curabitur pharetra pretium vel morbi ut ultrices dictum pellentesque. Enim ultrices id interdum tellus ac. At eget potenti quis nascetur amet tristique ornare euismod.
+            {
+                "Geht auch fit, wenn es ein wenig kürzer ist. Dann müsste man einfach nur $A^{-1}$ bilden und der Bumms hätte sich gegessen."
+            }
         </Comment>
     </div>
 }
