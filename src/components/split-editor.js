@@ -76,8 +76,6 @@ export default function SplitEditor({ editorTitle, placeholder, minRows }){
         const textarea = document.getElementById(textareaId);
         await populatePreviewView(textarea, previewContainer);
 
-        console.log("CHANGE!")
-
         autoResizeTextarea(textarea);
     }
 

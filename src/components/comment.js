@@ -62,7 +62,7 @@ export default function Comment({ creator, timePosted, answers, children }) {
                             <span className={styles.clickable} onClick={handleAbort}>Abbrechen</span>
                         </div>
                     </div>
-                    <SmallEditor editorTitle={"Antwort Text"} minRows={10}/>
+                    <SmallEditor editorTitle={"Antwort Text"} minRows={4}/>
                 </div>
             </div>
         </div>

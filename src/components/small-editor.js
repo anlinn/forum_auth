@@ -8,6 +8,7 @@ import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";
 import rehypeClassNames from "rehype-class-names";
 import rehypeHighlight from "rehype-highlight";
+import {autoResizeTextarea} from "@/utils/textarea-functions";
 
 export default function SmallEditor({ editorTitle, placeholder, minRows }){
     const previewContainerId = "previewContainer-" + useId();
@@ -46,6 +47,11 @@ export default function SmallEditor({ editorTitle, placeholder, minRows }){
         previewContainer.classList.remove(styles.hidden);
     }
 
+    const handleChange = () => {
+        const textarea = document.getElementById(textareaId);
+        autoResizeTextarea(textarea);
+    }
+
     return <div className={styles.editorContainer}>
         <div className={styles.editorHeader}>
             <span className={styles.editorTitle}>{(editorTitle) ? editorTitle : "Mini Editor"}</span>
@@ -55,7 +61,7 @@ export default function SmallEditor({ editorTitle, placeholder, minRows }){
                 <button className={styles.viewButton} onClick={togglePreviewView}>Preview</button>
             </div>
         </div>
-        <textarea className={styles.actualEditorArea} id={textareaId} placeholder={placeholderText} rows={(minRows) ? minRows : 1}>
+        <textarea onChange={handleChange} className={styles.actualEditorArea} id={textareaId} placeholder={placeholderText} rows={(minRows) ? minRows : 1}>
 
         </textarea>
         <div className={[styles.previewContainer, styles.hidden].join(" ")} id={previewContainerId}>
