@@ -1,0 +1,80 @@
+.commentContainer{
+    background: #F1F1F1;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.commentHeaderContainer{
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--font-color-secondary);
+}
+
+.commentTextContainer{
+    margin: 10px 0;
+}
+
+.commentFooterContainer{
+    color: var(--font-color-secondary);
+}
+
+.dotSeparator{
+    margin: 0 5px;
+}
+
+.clickable{
+    border-bottom: 1px solid var(--font-color-secondary);
+}
+.clickable:hover{
+    cursor: pointer;
+}
+
+.answersContainer{
+    margin-top: 10px;
+}
+
+.answerContainer{
+    display: flex;
+    flex-direction: row;
+}
+.arrowContainer{
+    padding: 15px 10px 15px 5px;
+    color: var(--font-color-secondary);
+}
+.arrowContainer:hover{
+    cursor: pointer;
+}
+.arrow{
+    text-wrap: nowrap;
+    user-select: none;
+}
+.rotated{
+    transform: rotate(90deg) !important;
+}
+
+.collapsed{
+    width: 100%;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.createAnswerContainerOuter{
+    display: flex;
+    flex-direction: row;
+}
+.createAnswerContainerInner{
+    border: 1px solid var(--font-color-secondary);
+    padding: 15px;
+    width: 100%;
+}
+.createAnswerHeader{
+    margin-bottom: 10px;
+    color: var(--font-color-secondary);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
