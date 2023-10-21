@@ -2,6 +2,7 @@ import SmallEditor from "@/components/small-editor";
 import Head from "next/head";
 import CLink from "@/components/clink";
 import SplitEditor from "@/components/split-editor";
+import AuthForm from "@/components/auth-form";
 
 export default function Home(){
     return (
@@ -15,6 +16,9 @@ export default function Home(){
             <br/>
             <CLink href={"/"} isInner={true}>Dieser Link bleibt auf dieser Seite</CLink>
             <SplitEditor/>
+            <div className="col-6 auth-widget">
+                <AuthForm />
+            </div>
         </>
     );
 }
